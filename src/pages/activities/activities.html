@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Actividades</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list-header>
+    Próximas
+  </ion-list-header>
+  <ion-list>
+    <activity-single
+      [activity]="activity"
+      *ngFor="let activity of activities">
+    </activity-single>
+  </ion-list>
+  <ion-list-header>
+    Pasadas
+  </ion-list-header>
+  <ion-list>
+      <activity-single
+        [activity]="pastActivity"
+        *ngFor="let pastActivity of pastActivities">
+      </activity-single>
+    </ion-list>
+</ion-content>

@@ -1,0 +1,16 @@
+<ion-item>
+    <ion-thumbnail item-start>
+        <img
+            *ngIf="media"
+            class="activity-poster"
+            width="100"
+            [attr.src]="media.media_details.sizes.thumbnail.source_url" />
+    </ion-thumbnail>
+    <h2 [innerHTML]="activity.title.rendered">{{activity.title.rendered}}</h2>
+    <p *ngIf="activity.acf.subtitle" [innerHTML]="activity.acf.subtitle">
+        {{activity.acf.subtitle}}
+    </p>
+    <p *ngIf="activity.acf.fecha">
+            {{ activity.acf.fecha }}
+        </p>
+</ion-item>

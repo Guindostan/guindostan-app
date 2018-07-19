@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ApiService } from '../../../services/api.service'
+import { NavController } from 'ionic-angular';
+
+import { ActivityDetail } from '../activity-detail/activity-detail'
 
 @Component({
   selector: 'activity-single',
@@ -13,7 +16,9 @@ export class ActivitySingleComponent implements OnInit {
     public media: {};
 
     constructor(
-        private apiService: ApiService
+        private apiService: ApiService,
+        private navController: NavController
+
     ) {}
     
     public ngOnInit(): void {
@@ -28,5 +33,18 @@ export class ActivitySingleComponent implements OnInit {
             });
         }
     }
+
+    navigateToActivity(){
+        console.log(this.activity);
+        this.navController.push(ActivityDetail, {
+            title: this.activity.title.rendered,
+            content: this.activity.content.rendered,
+            media: this.activity.featured_media,
+            link: this.activity.link,
+            subtitle: this.activity.acf.subtitle,
+            date: this.activity.acf.fecha,
+            hour: this.activity.acf.time
+        });
+      }
 
 }

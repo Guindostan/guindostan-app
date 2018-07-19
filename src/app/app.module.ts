@@ -13,6 +13,8 @@ import { ContactPage } from '../pages/contact/contact';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ActivitySingleComponent } from '../pages/activities/activity-single/activity-single.component';
+import { ActivityDetail } from '../pages/activities/activity-detail/activity-detail';
+import { ApiService } from '../services/api.service';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,7 @@ import { ActivitySingleComponent } from '../pages/activities/activity-single/act
     ContactPage,
     ActivitiesPage,
     ActivitySingleComponent,
+    ActivityDetail,
     TabsPage
   ],
   imports: [
@@ -37,12 +40,14 @@ import { ActivitySingleComponent } from '../pages/activities/activity-single/act
     ContactPage,
     ActivitiesPage,
     ActivitySingleComponent,
+    ActivityDetail,
     TabsPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     HttpClientModule,
+    ApiService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

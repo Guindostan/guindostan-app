@@ -5,8 +5,7 @@ import { format, isBefore, isAfter } from 'date-fns'
 
 @Component({
   selector: 'activities-home',
-  templateUrl: 'activities.html',
-  providers: [ ApiService ]
+  templateUrl: 'activities.html'
 })
 export class ActivitiesPage {
   

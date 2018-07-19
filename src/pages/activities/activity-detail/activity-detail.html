@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      {{title}}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <img
+      *ngIf="image"
+      class="activity-poster"
+      [attr.src]="image.media_details.sizes.full.source_url" />
+    <ion-card-content>
+      <ion-card-title>
+        <time [attr.datetime]="date">
+          {{ date | date:'medium' }} {{hour}}
+        </time>
+        <h1 [innerHTML]="title">{{title}}</h1>
+        <p>{{subtitle}}</p>
+      </ion-card-title>
+      <p [innerHTML]="content">
+        {{content}}
+      </p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+

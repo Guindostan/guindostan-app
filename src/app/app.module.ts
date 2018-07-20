@@ -15,6 +15,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { ActivitySingleComponent } from '../pages/activities/activity-single/activity-single.component';
 import { ActivityDetail } from '../pages/activities/activity-detail/activity-detail';
 import { ApiService } from '../services/api.service';
+import { UtilsService } from '../services/utils.service';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { ApiService } from '../services/api.service';
     SplashScreen,
     HttpClientModule,
     ApiService,
+    UtilsService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { NavParams, LoadingController } from 'ionic-angular';
 import { ApiService } from '../../../services/api.service';
-
+import { UtilsService } from '../../../services/utils.service';
 @Component({
   selector: 'activity-detail',
   templateUrl: 'activity-detail.html',
-  providers: [ ApiService ]
+  providers: [ ApiService, UtilsService ]
 })
 export class ActivityDetail implements OnInit {
   public title: string;
@@ -13,7 +13,7 @@ export class ActivityDetail implements OnInit {
   public media: string;
   public link: string;
   public subtitle: string;
-  public date: string;
+  public date: any;
   public hour: string;
   public image: {};
   public loading: any;
@@ -21,6 +21,7 @@ export class ActivityDetail implements OnInit {
   constructor(
     public navParams: NavParams,
     public apiService: ApiService,
+    public utilsService: UtilsService,
     public loadingCtrl: LoadingController
   ) {
     this.title = navParams.get('title');
@@ -32,16 +33,15 @@ export class ActivityDetail implements OnInit {
     this.hour = navParams.get('hour');
  }
 
- ngOnInit(): void {
-   this.getActivityMedia();
-   console.log(this.date);
- }
+  ngOnInit(): void {
+    this.getActivityMedia();
+    this.date = this.utilsService.parseDate(this.date);
+  }
 
   private getActivityMedia = () => {
     this.presentLoadingDefault();
     this.apiService.getActivityMedia(this.media)
     .subscribe((asset) => {
-        console.log('asset', asset);
         this.image = asset;
     });
     this.loading.dismiss();

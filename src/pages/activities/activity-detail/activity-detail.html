@@ -14,11 +14,11 @@
       [attr.src]="image.media_details.sizes.full.source_url" />
     <ion-card-content>
       <ion-card-title>
-        <time [attr.datetime]="date">
-          {{ date | date:'medium' }} {{hour}}
+        <time class="date-time" [attr.datetime]="date">
+          {{ date }} {{hour}}
         </time>
         <h1 [innerHTML]="title">{{title}}</h1>
-        <p>{{subtitle}}</p>
+        <p class="subtitle">{{subtitle}}</p>
       </ion-card-title>
       <p [innerHTML]="content">
         {{content}}

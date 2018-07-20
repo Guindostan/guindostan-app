@@ -38,11 +38,18 @@ $colors: (
   secondary:  #886aea,
   danger:     #f53d3d,
   light:      #f4f4f4,
+  calm:       #C1C1C1,
   dark:       #212121
 );
 
 $background-color: map-get($colors, light);
 $toolbar-background: map-get($colors, primary);
+
+$fontSize: (
+  small:   11pt,
+  medium:  16pt,
+  large:   21pt,
+);
 
 
 // App iOS Variables
